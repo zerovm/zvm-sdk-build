@@ -1,0 +1,16 @@
+---
+git_url: git://github.com/zerovm
+toolchain_repo: toolchain.git
+glibc_repo: glibc.git
+glibc_ver: master
+newlib_repo: newlib.git
+newlib_ver: master
+gcc_repo: gcc.git
+gcc_ver: zerovm
+gdb_repo: gdb.git
+gdb_ver: zerovm
+headers_repo: linux-headers-for-nacl.git
+headers_ver: master
+binutils_repo: binutils.git
+binutils_ver: master
+sdk_home: /home/zvm/zvm-sdk-build

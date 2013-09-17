@@ -1,0 +1,50 @@
+---
+- name: get toolchain from git
+  action: git repo=$git_url/$toolchain_repo dest=$sdk_home version=$toolchain_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get headers from git
+  action: git repo=$git_url/$headers_repo dest=$sdk_home/SRC/linux-headers-for-nacl version=$headers_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get gcc from git
+  action: git repo=$git_url/$gcc_repo dest=$sdk_home/SRC/gcc version=$gcc_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get binutils from git
+  action: git repo=$git_url/$binutils_repo dest=$sdk_home/SRC/binutils version=$binutils_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get gdb from git
+  action: git repo=$git_url/$gdb_repo dest=$sdk_home/SRC/gdb version=$gdb_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get glibc from git
+  action: git repo=$git_url/$glibc_repo dest=$sdk_home/SRC/glibc version=$glibc_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+
+- name: get newlib from git
+  action: git repo=$git_url/$newlib_repo dest=$sdk_home/SRC/newlib version=$newlib_ver
+  notify:
+    - make sdk
+  tags:
+    - git
+

@@ -1,0 +1,13 @@
+---
+- name: ensure dependency packages are installed
+  action: apt pkg=$item
+  with_items:
+      - flex
+      - bison
+      - lib32ncurses5-dev
+      - libncurses5-dev
+      - build-essential
+      - texinfo
+  tags:
+    - prereq
+

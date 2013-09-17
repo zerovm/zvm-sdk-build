@@ -1,0 +1,6 @@
+---
+- name: make sdk
+  action: shell cd $sdk_home; make -s -j16 build-with-glibc
+  async: 1800
+  poll: 20
+
