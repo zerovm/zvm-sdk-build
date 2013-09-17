@@ -13,4 +13,14 @@ headers_repo: linux-headers-for-nacl.git
 headers_ver: master
 binutils_repo: binutils.git
 binutils_ver: master
-sdk_home: /home/zvm/zvm-sdk-build
+zerovm_repo: zerovm.git
+zerovm_ver: master
+zrt_repo: zrt.git
+zrt_ver: master
+validator_repo: validator.git
+validator_ver: master
+sdk_home: /home/vagrant/zvm-sdk-build
+zvm_prefix: /opt/zerovm
+zerovm_home: $sdk_home/zerovm
+zrt_home: $sdk_home/zrt
+

@@ -27,13 +27,6 @@
   tags:
     - git
 
-- name: get gdb from git
-  action: git repo=$git_url/$gdb_repo dest=$sdk_home/SRC/gdb version=$gdb_ver
-  notify:
-    - make sdk
-  tags:
-    - git
-
 - name: get glibc from git
   action: git repo=$git_url/$glibc_repo dest=$sdk_home/SRC/glibc version=$glibc_ver
   notify:
@@ -47,4 +40,28 @@
     - make sdk
   tags:
     - git
+
+- name: get zerovm from git
+  action: git repo=$git_url/$zerovm_repo dest=$zerovm_home version=$zerovm_ver;
+  tags:
+    - git
+  notify: 
+    - make zerovm
+
+- name: get validator from git
+  action: git repo=$git_url/$validator_repo dest=$zerovm_home/valz version=$validator_ver;
+  tags:
+    - git
+  notify:
+    - make validator
+
+
+- name: get zrt from git
+  action: git repo=$git_url/$zrt_repo dest=$zrt_home version=$zrt_ver
+  tags:
+    - git
+  notify:
+    - make sdk
+
+
 

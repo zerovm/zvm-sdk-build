@@ -1,6 +1,6 @@
 ---
 - hosts: build
-  user: zvm
+  user: vagrant
   sudo: True
   gather_facts: False
   vars_files:
@@ -10,7 +10,7 @@
     - include: ../tasks/prereq_install.yaml
 
 - hosts: build
-  user: zvm
+  user: vagrant
   sudo: False
   gather_facts: False
   vars_files:

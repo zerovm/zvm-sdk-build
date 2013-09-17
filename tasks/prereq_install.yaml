@@ -8,6 +8,20 @@
       - libncurses5-dev
       - build-essential
       - texinfo
+      - git
+      - libc6-dev-i386
+      - libglib2.0-dev
+      - pkg-config
+      - libzmq-dev
+      - automake
+      - autoconf
+      - libtool 
+      - g++-multilib
   tags:
     - prereq
+
+- name: create ZVM_PREFIX dir
+  file: path=$zvm_prefix state=directory mode=0755 owner=vagrant group=vagrant
+  notify:
+  - make sdk
 
