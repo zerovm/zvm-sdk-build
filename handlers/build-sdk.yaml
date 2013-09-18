@@ -3,10 +3,10 @@
   shell: cd $zerovm_home/valz; make ZVM_PREFIX=$zvm_prefix validator; sudo make install
 
 - name: make zerovm
-  shell: cd $zerovm_home; make PREFIX=$zvm_prefix clean all install
+  shell: rm $zvm_prefix/* -fr; cd $zerovm_home; make PREFIX=$zvm_prefix clean all install
 
 - name: make sdk
-  action: shell cd $sdk_home; rm -fr $zvm_prefix/*; rm -fr BUILD/*; make ZVM_PREFIX=$zvm_prefix ZRT_ROOT=$sdk_home/zrt ZEROVM_ROOT=$sdk_home/zerovm -j2
+  action: shell cd $sdk_home; rm -fr BUILD/*; make ZVM_PREFIX=$zvm_prefix ZRT_ROOT=$sdk_home/zrt ZEROVM_ROOT=$sdk_home/zerovm clean; make ZVM_PREFIX=$zvm_prefix ZRT_ROOT=$sdk_home/zrt ZEROVM_ROOT=$sdk_home/zerovm -j4
   async: 1800
   poll: 20
 
