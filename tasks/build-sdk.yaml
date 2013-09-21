@@ -62,6 +62,33 @@
     - git
   notify:
     - make sdk
+    - make gtest
 
+- name: get llvm from git
+  action: git repo=$git_url/$llvm_repo dest=$sdk_home/llvm version=$llvm_ver
+  tags:
+    - git
+  notify:
+    - make llvm
 
+- name: get clang from git
+  action: git repo=$git_url/$clang_repo dest=$sdk_home/llvm/tools/clang version=$clang_ver
+  tags:
+    - git
+  notify:
+    - make llvm
 
+- name: get binutils from git
+  action: git repo=$git_url/$binutils_repo dest=$sdk_home/binutils version=$binutils_ver
+  notify:
+    - make bfd
+  tags:
+    - git
+
+- name: get zerovm-llvm from git
+  action: git repo=$zerovm_llvm_url dest=$sdk_home/zerovm-llvm
+  notify:
+    - make libjit
+    - make libzdl
+  tags:
+    - git

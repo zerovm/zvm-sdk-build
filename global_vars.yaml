@@ -19,6 +19,13 @@ zrt_repo: zrt.git
 zrt_ver: master
 validator_repo: validator.git
 validator_ver: master
+llvm_repo: llvm-port.git
+llvm_ver: master
+clang_repo: clang-port.git
+clang_ver: master
+zerovm_llvm_url: git://github.com/rampage644/zerovm-llvm.git
+
+
 sdk_home: /home/vagrant/zvm-sdk-build
 zvm_prefix: /opt/zerovm
 zerovm_home: $sdk_home/zerovm

@@ -10,4 +10,20 @@
   async: 1800
   poll: 20
 
+- name: make llvm
+  action: shell cd $sdk_home/llvm; rm build/* -fr; PATH=$zvm_prefix/bin:$PATH ZVM_PREFIX=$zvm_prefix ./build.sh; cd build/; PATH=$zvm_prefix/bin:$PATH make install
+  async: 1800
+  poll: 20
+
+- name: make bfd
+  action: shell cd $sdk_home/binutils/bfd; PATH=$zvm_prefix/bin:$PATH ./configure --host=x86_64-nacl --disable-werror --prefix=$zvm_prefix/x86_64-nacl --exec-prefix=$zvm_prefix/x86_64-nacl; PATH=$zvm_prefix/bin:$PATH make -j4; PATH=$zvm_prefix/bin:$PATH make install
+
+- name: make gtest
+  action: shell cp $zrt_home/lib/gtest/libgtest.a $zvm_prefix/x86_64-nacl/lib
+
+- name: make libzdl
+  action: shell cd $sdk_home/zerovm-llvm/libzdl; ZVM_PREFIX=$zvm_prefix PATH=$zvm_prefix/bin:$PATH make; ZVM_PREFIX=$zvm_prefix PATH=$zvm_prefix/bin:$PATH make install
+
+- name: make libjit
+  action: shell cd $sdk_home/zerovm-llvm/libjit; ZVM_PREFIX=$zvm_prefix PATH=$zvm_prefix/bin:$PATH make; ZVM_PREFIX=$zvm_prefix PATH=$zvm_prefix/bin:$PATH make install
 
